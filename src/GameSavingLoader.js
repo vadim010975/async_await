@@ -6,9 +6,8 @@ export default class GameSavingLoader {
     try {
       return JSON.parse(await json(await read()));
     } catch (e) {
-      return new Promise((resolve, reject) => {
-        reject(e);
-      });
-    }
+      throw new Error(e);
+    };
   }
 }
+
